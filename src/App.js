@@ -1,11 +1,13 @@
-import './App.css';
+import './App.css'
+import Login from './Login'
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Quiz App</h1>
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>Quiz App</h1>
+            <Login />
+        </div>
+    )
 }
 
-export default App;
+export default App
