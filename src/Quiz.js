@@ -3,6 +3,16 @@ import React, { Component } from 'react'
 import './Quiz.css'
 
 export default class Quiz extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       currnetQuestion: 0,
+       score: 0,
+       showScore: false
+    }
+  }
+  
     render() {
         return (
             <div className="quiz-container">
