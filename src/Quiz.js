@@ -10,10 +10,12 @@ export default class Quiz extends Component {
         this.state = {
             qSet: [],
             currnetQuestion: 0,
+            selectedOption: '',
             score: 0,
             showScore: false,
         }
         this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this)
+        this.onValueChange = this.onValueChange.bind(this)
     }
 
     getQuestions = () => {
@@ -22,12 +24,22 @@ export default class Quiz extends Component {
         })
     }
 
-    handleAnswerSubmit = (e, correctAnswer) => {
+    onValueChange(e) {
+        this.setState({
+            selectedOption: e.target.value,
+        })
+    }
+
+    handleAnswerSubmit = (e) => {
         e.preventDefault()
-        alert(correctAnswer)
-        // this.setState((state) => ({
-        //     isToggleOn: !state.isToggleOn,
-        // }))
+        if (
+            this.state.selectedOption ===
+            this.state.qSet[this.state.currnetQuestion].correctAnswer
+        ) {
+            this.setState({
+                score: this.state.score + 1,
+            })
+        }
     }
 
     componentDidMount() {
@@ -53,13 +65,7 @@ export default class Quiz extends Component {
                         <div className="answer-card">
                             <form
                                 className="answer-form"
-                                onSubmit={() =>
-                                    this.handleAnswerSubmit(
-                                        this.state.qSet[
-                                            this.state.currnetQuestion
-                                        ].correctAnswer
-                                    )
-                                }
+                                onSubmit={this.handleAnswerSubmit}
                             >
                                 <div className="options">
                                     {this.state.qSet[
@@ -71,6 +77,12 @@ export default class Quiz extends Component {
                                                 name="ans"
                                                 id={answerOption}
                                                 value={answerOption}
+                                                checked={
+                                                    this.state
+                                                        .selectedOption ===
+                                                    answerOption
+                                                }
+                                                onChange={this.onValueChange}
                                             />
                                             <label htmlFor={answerOption}>
                                                 {answerOption}
