@@ -126,5 +126,7 @@ const questionSet = [
     },
 ]
 
-export default (n = 10) =>
+const fn = (n = 10) =>
     Promise.resolve(questionSet.sort(() => 0.5 - Math.random()).slice(0, n))
+    
+export default fn

@@ -13,16 +13,17 @@ class Login extends Component {
             errorType: '',
             redirect: false,
         }
+        this.handelOnChange = this.handelOnChange.bind(this)
     }
 
-    handelOnChange = (e) => {
+    handelOnChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
 
     handelSubmit = (e) => {
-        const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         e.preventDefault()
         if (this.state.email === '') {
             this.setState({
@@ -59,6 +60,7 @@ class Login extends Component {
                                 onChange={this.handelOnChange}
                                 type="text"
                                 name="email"
+                                value={this.state.email}
                             />
                             {this.state.errorType === 'nullEmail' && (
                                 <span className="error-msg">
@@ -77,6 +79,7 @@ class Login extends Component {
                                 onChange={this.handelOnChange}
                                 type="password"
                                 name="password"
+                                value={this.state.password}
                             />
                             {this.state.errorType === 'nullPassword' && (
                                 <span className="error-msg">
