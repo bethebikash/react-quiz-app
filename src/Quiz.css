@@ -47,6 +47,9 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
+    text-align: center;
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .answer-submit {
@@ -55,7 +58,7 @@
     color: white;
     width: 200px;
     cursor: pointer;
-    margin: 20px 0 10px 0;
+    margin: 10px 0 10px 0;
     font-size: 18px;
     padding: 8px;
     text-transform: uppercase;
@@ -117,14 +120,44 @@
     color: white;
     padding: 40px 0 10px 0;
     margin: auto;
+    transform: translateX(35px);
 }
 
 .logout {
     color: white;
     margin-left: auto;
-    transform: translateY(20px);
+    transform: translateY(20px) translateX(190px);
     border: white 2px solid;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.option-item {
+    background-color: #95efff;
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.option-item > input,
+label {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+   .quiz{
+    width: 100%;
+  }
+
+  .header > h1{
+    transform: translateX(-70px);
+  }
+
+  .logout{
+    transform: translateY(20px) translateX(70px);
+  }
 }

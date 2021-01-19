@@ -1,4 +1,4 @@
 .App {
     background: linear-gradient(#0f2f42, #196e83);
-    height: 100vh;
+    min-height: 100vh;
 }

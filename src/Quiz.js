@@ -112,14 +112,14 @@ export default class Quiz extends Component {
             <div className="quiz-container">
                 <div className="header">
                     <h1>Quiz App</h1>
-                    <span onClick={this.handleLogout} on className="logout">
+                    <span onClick={this.handleLogout} className="logout">
                         Logout
                     </span>
                 </div>
                 <div className="quiz">
                     {this.state.showScore ? (
                         <div className="score-card">
-                            <div class="score-text">
+                            <div className="score-text">
                                 You have scored {this.state.score} out of 10.
                             </div>
                             <div
@@ -135,7 +135,11 @@ export default class Quiz extends Component {
                                 <>
                                     <div className="question-card">
                                         <div className="question-count">
-                                            <span>Question 1</span>/ 10
+                                            <span>
+                                                Question{' '}
+                                                {this.state.currnetQuestion + 1}
+                                            </span>
+                                            / 10
                                         </div>
                                         <div className="question-text">
                                             {
@@ -172,6 +176,7 @@ export default class Quiz extends Component {
                                                     ].answers.map(
                                                         (answerOption) => (
                                                             <div
+                                                                className="option-item"
                                                                 key={
                                                                     answerOption
                                                                 }
