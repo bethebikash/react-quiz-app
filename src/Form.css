@@ -62,3 +62,9 @@
 .form-change-link{
   text-decoration: none;
 }
+
+.error-msg{
+    color:red;
+    font-weight: bold;
+    font-size: small;
+}

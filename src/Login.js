@@ -26,13 +26,15 @@ class Login extends Component {
         e.preventDefault()
         if (this.state.email === '') {
             this.setState({
-                errorType: 'emailNull',
+                errorType: 'nullEmail',
             })
         } else if (!validEmail.test(this.state.email)) {
-            alert('incorrect')
+            this.setState({
+                errorType: 'invalidEmail',
+            })
         } else if (this.state.password === '') {
             this.setState({
-                errorType: 'passwordNull',
+                errorType: 'nullPassword',
             })
         } else {
             this.setState({
@@ -58,6 +60,16 @@ class Login extends Component {
                                 type="text"
                                 name="email"
                             />
+                            {this.state.errorType === 'nullEmail' && (
+                                <span className="error-msg">
+                                    Email is required.
+                                </span>
+                            )}
+                            {this.state.errorType === 'invalidEmail' && (
+                                <span className="error-msg">
+                                    Invalid email.
+                                </span>
+                            )}
                         </label>
                         <label className="form-label">
                             <span>Password</span>
@@ -66,6 +78,11 @@ class Login extends Component {
                                 type="password"
                                 name="password"
                             />
+                            {this.state.errorType === 'nullPassword' && (
+                                <span className="error-msg">
+                                    Password is required.
+                                </span>
+                            )}
                         </label>
                         <button className="submit-button" type="submit">
                             Login
