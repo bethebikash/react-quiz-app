@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    top: 0;
 }
 
 .form-title {
@@ -47,8 +48,8 @@
 }
 
 .form-container {
-    margin-top: 50px;
     display: flex;
+    padding-top: 120px;
     justify-content: center;
     align-content: center;
 }

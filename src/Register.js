@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Form.css'
 
@@ -30,9 +31,9 @@ class Register extends Component {
                         </button>
                         <p className="form-change">
                             Already have an account?{' '}
-                            <a className="form-change-link" href="#">
+                            <Link to="/"  className="form-change-link">
                                 Login.
-                            </a>
+                            </Link>
                         </p>
                     </form>
                 </div>

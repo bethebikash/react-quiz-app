@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './Quiz.css'
 import questionSet from './questions'
+import { Redirect } from 'react-router-dom'
 
 export default class Quiz extends Component {
     constructor(props) {
@@ -16,11 +17,13 @@ export default class Quiz extends Component {
             selectError: false,
             next: false,
             message: '',
+            logout: false,
         }
         this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this)
         this.onValueChange = this.onValueChange.bind(this)
         this.handleRestart = this.handleRestart.bind(this)
         this.handleNext = this.handleNext.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
     getQuestions = () => {
@@ -89,12 +92,30 @@ export default class Quiz extends Component {
             score: 0,
             showScore: false,
             selectError: false,
+            next: false,
+            message: '',
+            logout: false,
+        })
+    }
+
+    handleLogout() {
+        this.setState({
+            logout: true,
         })
     }
 
     render() {
+        if (this.state.logout) {
+            return <Redirect to="/" />
+        }
         return (
             <div className="quiz-container">
+                <div className="header">
+                    <h1>Quiz App</h1>
+                    <span onClick={this.handleLogout} on className="logout">
+                        Logout
+                    </span>
+                </div>
                 <div className="quiz">
                     {this.state.showScore ? (
                         <div className="score-card">
@@ -127,7 +148,9 @@ export default class Quiz extends Component {
                                     <div className="answer-card">
                                         {this.state.next ? (
                                             <>
-                                                <div>{this.state.message}</div>
+                                                <div className="message">
+                                                    {this.state.message}
+                                                </div>
                                                 <button
                                                     onClick={this.handleNext}
                                                     className="answer-submit"
@@ -193,7 +216,8 @@ export default class Quiz extends Component {
                                                     </button>
                                                     {this.state.selectError && (
                                                         <span className="selection-error">
-                                                            slecct
+                                                            Please select an
+                                                            option.
                                                         </span>
                                                     )}
                                                 </div>

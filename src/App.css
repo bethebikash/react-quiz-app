@@ -1,11 +1,4 @@
 .App {
-    background: linear-gradient( #0f2f42, #196e83);
+    background: linear-gradient(#0f2f42, #196e83);
     height: 100vh;
-}
-
-.App > h1 {
-    text-align: center;
-    color: white;
-    margin: 0;
-    padding: 40px 0 10px 0;
 }
