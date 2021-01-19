@@ -30,31 +30,49 @@ const questionSet = [
     {
         qid: 4,
         question: 'What does the "webpack" command do?',
-        answers: ['Transpiles all the Javascript down into one file', 'Runs react local development server', 'A module bundler', 'None of above'],
+        answers: [
+            'Transpiles all the Javascript down into one file',
+            'Runs react local development server',
+            'A module bundler',
+            'None of above',
+        ],
         correctAnswer: 'A module bundler',
     },
     {
         qid: 5,
-        question: 'What port is the default where the webpack-dev-server will run?',
+        question:
+            'What port is the default where the webpack-dev-server will run?',
         answers: ['3000', '8080', '3606', '8000'],
         correctAnswer: '8080',
     },
     {
         qid: 6,
         question: 'What is ReactJS?',
-        answers: ['Server side Framework', 'User-interface framework', 'A Library for building interaction interfaces', 'None of These'],
+        answers: [
+            'Server side Framework',
+            'User-interface framework',
+            'A Library for building interaction interfaces',
+            'None of These',
+        ],
         correctAnswer: 'A Library for building interaction interfaces',
     },
     {
         qid: 7,
-        question: 'In React what is used to pass data to a component from outside?',
+        question:
+            'In React what is used to pass data to a component from outside?',
         answers: ['setState', 'render with arguments', 'props', 'PropTypes'],
         correctAnswer: 'props',
     },
     {
         qid: 8,
-        question: 'How can you access the state of a component from inside of a member function?',
-        answers: ['this.getState()', 'this.values', 'this.prototype.stateValue', 'this.state'],
+        question:
+            'How can you access the state of a component from inside of a member function?',
+        answers: [
+            'this.getState()',
+            'this.values',
+            'this.prototype.stateValue',
+            'this.state',
+        ],
         correctAnswer: 'this.values',
     },
     {
@@ -77,8 +95,14 @@ const questionSet = [
     },
     {
         qid: 12,
-        question: 'Keys are given to a list of elements in react. These keys should be -',
-        answers: ['Do not requires to be unique', 'Unique in the DOM', 'Unique among the siblings only', 'All of the above'],
+        question:
+            'Keys are given to a list of elements in react. These keys should be -',
+        answers: [
+            'Do not requires to be unique',
+            'Unique in the DOM',
+            'Unique among the siblings only',
+            'All of the above',
+        ],
         correctAnswer: 'Unique among the siblings only',
     },
     {
@@ -95,8 +119,12 @@ const questionSet = [
     },
     {
         qid: 15,
-        question: '__________ helps react for keeping their data unidirectional.',
+        question:
+            '__________ helps react for keeping their data unidirectional.',
         answers: ['JSX', 'Flux', 'Dom', 'Props'],
         correctAnswer: 'Props',
     },
 ]
+
+export default (n = 10) =>
+    Promise.resolve(questionSet.sort(() => 0.5 - Math.random()).slice(0, n))
